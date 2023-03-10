@@ -13,4 +13,12 @@ def arithmetic_progression(first: int,
     2) разность
     3) количество элементов"""
 
-    pass
+    progresion = [first]
+    for i in range(quantity-1):
+        progresion.append(progresion[i] + diff)
+    return progresion
+
+first = int(input("ВВедите первый элемент"))
+diff = int(input("Введите разность"))
+quantity =  int(input("Введите количество элементов"))
+print(arithmetic_progression(first, diff, quantity))

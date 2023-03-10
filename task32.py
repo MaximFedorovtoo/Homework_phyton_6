@@ -9,10 +9,18 @@
 
 # pytest -v tests\test_32.py
 
-
 def is_in_mass(num_lst: list[int],
                min_num: int,
                max_num: int) -> list[int]:
     """Возвращает список индексов элементов списка, которые
-    находятся в диапазоне [min_num,max_num] """
-    pass
+    находятся в диапазоне [min_num,max_num) """
+    add_list = list()
+    for i in range(len(num_lst)):
+        if min_num <= num_lst[i] and num_lst[i] <= max_num:
+            add_list.append(i)
+    return add_list
+num_lst = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
+min_num = 5
+max_num = 15
+
+print(is_in_mass(num_lst, min_num, max_num))
